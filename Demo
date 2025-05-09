@@ -1,0 +1,47 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset (replace with your file path)
+df = pd.read_csv('football_matches.csv')
+
+# Display the first few rows of the dataset
+print(df.head())
+# Convert date columns to datetime
+df['date'] = pd.to_datetime(df['date'])
+
+# Handle missing values
+df.fillna(method='ffill', inplace=True)
+
+# Create new columns for analysis (e.g., goal difference)
+df['goal_difference'] = df['home_score'] - df['away_score']
+# Distribution of goals scored
+sns.histplot(df['home_score'], kde=True, label='Home Team', color='blue')
+sns.histplot(df['away_score'], kde=True, label='Away Team', color='red')
+plt.legend()
+plt.title('Distribution of Goals Scored')
+plt.show()
+
+# Correlation heatmap
+corr_matrix = df[['home_score', 'away_score', 'goal_difference']].corr()
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm')
+plt.title('Correlation Matrix')
+plt.show()
+# Average goals scored per match
+avg_home_goals = df['home_score'].mean()
+avg_away_goals = df['away_score'].mean()
+print(f"Average Home Goals: {avg_home_goals}")
+print(f"Average Away Goals: {avg_away_goals}")
+
+# Goal difference analysis
+avg_goal_diff = df['goal_difference'].mean()
+print(f"Average Goal Difference: {avg_goal_diff}")
+# Group by team and calculate average goals scored
+home_team_performance = df.groupby('home_team')['home_score'].mean().sort_values(ascending=False)
+away_team_performance = df.groupby('away_team')['away_score'].mean().sort_values(ascending=False)
+
+# Combine home and away performance
+team_performance = pd.concat([home_team_performance, away_team_performance], axis=1)
+team_performance.columns = ['Home Goals', 'Away Goals']
+print(team_performance.head())
