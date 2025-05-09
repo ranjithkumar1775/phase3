@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Match Data Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .chart {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .chart img {
+            max-width: 100%;
+            height: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Football Match Data Analysis Report</h1>
+
+    <div class="section">
+        <h2>1. Distribution of Goals Scored</h2>
+        <div class="chart">
+            <img src="path_to_histogram_image.png" alt="Distribution of Goals Scored">
+        </div>
+        <p>This chart illustrates the distribution of goals scored by home and away teams across all matches.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Correlation Matrix</h2>
+        <div class="chart">
+            <img src="path_to_correlation_heatmap.png" alt="Correlation Matrix">
+        </div>
+        <p>The heatmap above shows the correlation between home score, away score, and goal difference.</p>
+    </div>
+
+    <div class="section">
+        <h2>3. Performance Metrics</h2>
+        <p>Average Goals Scored per Match:</p>
+        <ul>
+            <li>Home Team: 1.8</li>
+            <li>Away Team: 1.2</li>
+        </ul>
+        <p>Average Goal Difference: 0.6</p>
+    </div>
+
+    <div class="section">
+        <h2>4. Team Performance</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Average Home Goals</th>
+                    <th>Average Away Goals</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Team A</td>
+                    <td>2.1</td>
+                    <td>1.5</td>
+                </tr>
+                <tr>
+                    <td>Team B</td>
+                    <td>1.8</td>
+                    <td>1.2</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        <p>This table displays the average goals scored by each team at home and away.</p>
+    </div>
+
+    <div class="section">
+        <h2>5. Match Outcome Prediction</h2>
+        <p>Based on the Random Forest model, the predicted outcome for the upcoming match is:</p>
+        <p><strong>Home Win</strong></p>
+        <p>This prediction is based on features such as home and away scores and team strengths.</p>
+    </div>
+
+</body>
+</html>
