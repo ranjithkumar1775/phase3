@@ -1,0 +1,15 @@
+pip freeze > requirements.txt
+web: gunicorn app:app
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+heroku login
+git init
+heroku create
+git add .
+git commit -m "Initial commit"
+git push heroku master
+heroku open
+eb init
+eb create my-environment
+eb deploy
+eb open
